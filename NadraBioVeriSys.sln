@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32602.291
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NadraBioVeriSys", "NadraBioVeriSys\NadraBioVeriSys.csproj", "{D45EF709-87C0-49F3-AC7F-9C260A4ECEBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.ruda.Domain", "com.ruda.Domain\com.ruda.Domain.csproj", "{FF14DBF7-7366-4AFA-BBDD-C87A0AB231D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.ruda.DataAccess", "com.ruda.DataAccess\com.ruda.DataAccess.csproj", "{F5556DC8-9E26-433C-8641-2996885226E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.ruda.BioVeriSys_API", "com.ruda.BioVeriSys_API\com.ruda.BioVeriSys_API.csproj", "{0BBE39B9-3621-4AB2-ACA6-6833B411A693}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.ruda.BusinessLogic", "com.ruda.BusinessLogic\com.ruda.BusinessLogic.csproj", "{A1FEAD55-AF6F-47C8-9A35-3FE8B40C54CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D45EF709-87C0-49F3-AC7F-9C260A4ECEBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D45EF709-87C0-49F3-AC7F-9C260A4ECEBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D45EF709-87C0-49F3-AC7F-9C260A4ECEBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D45EF709-87C0-49F3-AC7F-9C260A4ECEBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF14DBF7-7366-4AFA-BBDD-C87A0AB231D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF14DBF7-7366-4AFA-BBDD-C87A0AB231D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF14DBF7-7366-4AFA-BBDD-C87A0AB231D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF14DBF7-7366-4AFA-BBDD-C87A0AB231D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5556DC8-9E26-433C-8641-2996885226E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5556DC8-9E26-433C-8641-2996885226E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5556DC8-9E26-433C-8641-2996885226E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5556DC8-9E26-433C-8641-2996885226E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BBE39B9-3621-4AB2-ACA6-6833B411A693}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BBE39B9-3621-4AB2-ACA6-6833B411A693}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BBE39B9-3621-4AB2-ACA6-6833B411A693}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BBE39B9-3621-4AB2-ACA6-6833B411A693}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1FEAD55-AF6F-47C8-9A35-3FE8B40C54CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1FEAD55-AF6F-47C8-9A35-3FE8B40C54CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1FEAD55-AF6F-47C8-9A35-3FE8B40C54CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1FEAD55-AF6F-47C8-9A35-3FE8B40C54CE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FE8AFFC5-4F58-43F1-96CC-62308E1D06C0}
+	EndGlobalSection
+EndGlobal
