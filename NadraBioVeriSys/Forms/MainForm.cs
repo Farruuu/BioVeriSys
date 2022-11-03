@@ -13,8 +13,6 @@ namespace NadraBioVeriSys
 {
     public partial class MainForm : Form
     {
-        private int childFormNumber = 0;
-
         public MainForm()
         {
             InitializeComponent();
@@ -49,10 +47,7 @@ namespace NadraBioVeriSys
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Shared.loggedInUserID = 0;
-            Shared.loggedInUserName = "";
-            Shared.loggedInUserEmail = "";
-            Shared.Access_token = "";
+            Shared.LoggedInUser = null;
             frmLogin login = new frmLogin();
             this.Close();
             login.Show();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NadraBioVeriSys.Class;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,11 +9,27 @@ namespace NadraBioVeriSys
 {
     public class Shared
     {
+        /// <summary>
+        /// 
+        /// Application User Information    
+        /// 
+        /// </summary>
+
         public static string API_URL = System.Configuration.ConfigurationManager.AppSettings["API"];
-        public static int loggedInUserID = 0;
-        public static string loggedInUserName = "";
-        public static string loggedInUserEmail = "";
-        public static string Access_token = "";
+
+        public static Users LoggedInUser { get; set; }
+
+        //public static int loggedInUserID = 0;
+        //public static int loggedInUserStationID = 0;
+        //public static string loggedInUserName = "";
+        //public static string loggedInUserEmail = "";
+        //public static string Access_token = "";
+
+        /// <summary>
+        ///
+        /// Verification Response variables
+        /// 
+        /// </summary>
 
         public static string SessionID = String.Empty;
         public static DateTime RequestedOn = DateTime.MinValue;
@@ -22,6 +39,6 @@ namespace NadraBioVeriSys
         public static string ResponseMessage = String.Empty;
         public static int[] SuggestedFingers = null;
 
-       
+
     }
 }

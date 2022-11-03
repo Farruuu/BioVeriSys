@@ -291,6 +291,8 @@ namespace NadraBioVeriSys.DataSets {
             
             private global::System.Data.DataColumn columnVDate;
             
+            private global::System.Data.DataColumn columnVTime;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public dsVerificationResultDataTable() {
@@ -374,6 +376,14 @@ namespace NadraBioVeriSys.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn VTimeColumn {
+                get {
+                    return this.columnVTime;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -409,7 +419,7 @@ namespace NadraBioVeriSys.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public dsVerificationResultRow AdddsVerificationResultRow(string VID, string CNIC, string CellNO, string FingerScanned, string Result, string VDate) {
+            public dsVerificationResultRow AdddsVerificationResultRow(string VID, string CNIC, string CellNO, string FingerScanned, string Result, string VDate, string VTime) {
                 dsVerificationResultRow rowdsVerificationResultRow = ((dsVerificationResultRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         VID,
@@ -417,7 +427,8 @@ namespace NadraBioVeriSys.DataSets {
                         CellNO,
                         FingerScanned,
                         Result,
-                        VDate};
+                        VDate,
+                        VTime};
                 rowdsVerificationResultRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdsVerificationResultRow);
                 return rowdsVerificationResultRow;
@@ -446,6 +457,7 @@ namespace NadraBioVeriSys.DataSets {
                 this.columnFingerScanned = base.Columns["FingerScanned"];
                 this.columnResult = base.Columns["Result"];
                 this.columnVDate = base.Columns["VDate"];
+                this.columnVTime = base.Columns["VTime"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -463,6 +475,8 @@ namespace NadraBioVeriSys.DataSets {
                 base.Columns.Add(this.columnResult);
                 this.columnVDate = new global::System.Data.DataColumn("VDate", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVDate);
+                this.columnVTime = new global::System.Data.DataColumn("VTime", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVTime);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -701,6 +715,22 @@ namespace NadraBioVeriSys.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string VTime {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsVerificationResult.VTimeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'VTime\' in table \'dsVerificationResult\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsVerificationResult.VTimeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsVIDNull() {
                 return this.IsNull(this.tabledsVerificationResult.VIDColumn);
             }
@@ -769,6 +799,18 @@ namespace NadraBioVeriSys.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetVDateNull() {
                 this[this.tabledsVerificationResult.VDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsVTimeNull() {
+                return this.IsNull(this.tabledsVerificationResult.VTimeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetVTimeNull() {
+                this[this.tabledsVerificationResult.VTimeColumn] = global::System.Convert.DBNull;
             }
         }
         

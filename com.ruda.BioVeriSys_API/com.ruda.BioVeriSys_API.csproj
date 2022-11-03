@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Title>BioVeriSys_API</Title>
+    <Company>RUDA</Company>
+    <Copyright>RUDA</Copyright>
   </PropertyGroup>
 
   <ItemGroup>

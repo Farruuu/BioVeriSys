@@ -27,6 +27,7 @@ namespace com.ruda.DataAccess
                             Designation = dr["Designation"].ToString(),
                             Email = dr["Email"].ToString(),
                             UserStatus = Convert.ToBoolean(dr["UserStatus"].ToString()),
+                            StationID = Convert.ToInt32(dr["StationID"] != DBNull.Value ? dr["StationID"].ToString() : "0")
                         };
                     }
                 }

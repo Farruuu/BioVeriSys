@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using NadraBioVeriSys.Class;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 using System;
@@ -22,19 +23,36 @@ namespace NadraBioVeriSys
         {
             try
             {
+                if (string.IsNullOrEmpty(txtUsername.Text))
+                {
+                    lblInvalidLogin.Text = "Please enter UserName!";
+                    txtUsername.Focus();
+                    return;
+                }
+                else if (string.IsNullOrEmpty(txtPassword.Text))
+                {
+                    lblInvalidLogin.Text = "Please enter Password";
+                    txtPassword.Focus();
+                    return;
+                }
+
                 string postData = "username=" + txtUsername.Text + "&password=" + txtPassword.Text;
                 string URL = Shared.API_URL + @"Users/DoLogin";
                 var data = new WebService().webPostMethod(postData, URL);
 
                 var response = JObject.Parse(data);
-                
+
                 if ((int)response["meta"]["code"] == 200)
                 {
+                    var objUser = JsonConvert.SerializeObject(response["response"]["User"]);
+                    Shared.LoggedInUser =  JsonConvert.DeserializeObject<Users>(objUser);
+                    if (!Shared.LoggedInUser.UserStatus)
+                    {
+                        lblInvalidLogin.Text = "This User Account is disabled. Please contact RUDA IT Department.";
+                        return;
+                    }
+
                     this.Hide();
-                    Shared.loggedInUserID = (int)response["response"]["userId"];
-                    Shared.loggedInUserName = response["response"]["Name"].ToString();
-                    Shared.loggedInUserEmail = response["response"]["email"].ToString();
-                    Shared.Access_token = response["response"]["Access_token"].ToString();
                     MainForm ObjMainMdi = new MainForm();
                     ObjMainMdi.Show();
                 }

@@ -32,10 +32,7 @@ namespace com.ruda.BioVeriSys_API.Controllers
                     meta.message = "Signed In Successfully!";
                     response = SendResponse("SignIn", meta, new
                     {
-                        userId = objuser.ID,
-                        Name = objuser.Name,
-                        email = objuser.Email,
-                        Access_token = objuser.AccessToken
+                        User = objuser
                     });
                 }
                 else
