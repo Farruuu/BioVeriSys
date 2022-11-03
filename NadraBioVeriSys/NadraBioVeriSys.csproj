@@ -64,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\Users.cs" />
     <Compile Include="DataSets\ReportDataSet.cs">
       <DependentUpon>ReportDataSet.xsd</DependentUpon>
     </Compile>
@@ -94,6 +95,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\VerificationReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VerificationReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Shared.cs" />
     <Compile Include="Forms\Verification.cs">
       <SubType>Form</SubType>
@@ -123,6 +130,10 @@
     </Compile>
     <EmbeddedResource Include="Forms\Verification.resx">
       <DependentUpon>Verification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\VerificationReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>VerificationReport.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="DataSets\ReportDataSet.xsc">
       <DependentUpon>ReportDataSet.xsd</DependentUpon>
@@ -163,7 +174,7 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Reports\" />
+    <None Include="Resources\2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

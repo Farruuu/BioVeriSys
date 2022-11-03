@@ -46,7 +46,7 @@ namespace NadraBioVeriSys.Class
                     return;
                 }
 
-                string postData = "UserID=" + Shared.loggedInUserID + "&CurrentPassword=" + txtCurrentPassword.Text + "&NewPassword=" + txtNewPassword.Text;
+                string postData = "UserID=" + Shared.LoggedInUser.ID + "&CurrentPassword=" + txtCurrentPassword.Text + "&NewPassword=" + txtNewPassword.Text;
                 string URL = Shared.API_URL + @"Users/UpdatePassword";
                 var data = new WebService().webPostMethod(postData, URL);
 

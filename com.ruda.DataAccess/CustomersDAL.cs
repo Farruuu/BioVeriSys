@@ -46,12 +46,12 @@ namespace com.ruda.DataAccess
             catch (Exception ex) { throw new Exception(ex.Message); }
         }
 
-        public int StoreAPIRequestToDB(VerificationStatus vs, int UserID)
+        public int StoreAPIRequestLogToDB(VerificationStatus vs)
         {
             try
             {
-                string @get = @"SP_StoreAPIRequestToDB, @SessionID, @TransactionID, @CitizenNumber, @ResponseCode, @ResponseMessage, @RequestedBy";
-                Int64 result = new DBHandle().ExecuteSPWithReturnID(@get, vs.SessionID, vs.TransactionID, vs.CitizenNumber, vs.ResponseCode, vs.ResponseMessage, UserID);
+                string @get = @"SP_StoreAPIRequestLog, @BusinessPurpose, @SessionID, @CitizenNumber, @RequestedOn, @RequestedBy, @StationID, @ResponseCode, @ResponseMessage, @TransactionID";
+                Int64 result = new DBHandle().ExecuteSPWithReturnID(@get, vs.BusinessPurpose, vs.SessionID, vs.CitizenNumber, vs.RequestedOn, vs.UserID, vs.StationID, vs.ResponseCode, vs.ResponseMessage, vs.TransactionID);
 
                 return (int)result;
             }
