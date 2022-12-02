@@ -31,13 +31,15 @@ namespace NadraBioVeriSys
         /// 
         /// </summary>
 
-        public static string SessionID = String.Empty;
-        public static DateTime RequestedOn = DateTime.MinValue;
-        public static string TransactionID = String.Empty;
-        public static string CitizenNumber = String.Empty;
-        public static int ResponseCode = 0;
-        public static string ResponseMessage = String.Empty;
-        public static int[] SuggestedFingers = null;
+        public static VerificationStatus Status { get; set;}
+
+        //public static string SessionID = String.Empty;
+        //public static DateTime RequestedOn = DateTime.MinValue;
+        //public static string TransactionID = String.Empty;
+        //public static string CitizenNumber = String.Empty;
+        //public static int ResponseCode = 0;
+        //public static string ResponseMessage = String.Empty;
+        //public static int[] SuggestedFingers = null;
 
 
     }

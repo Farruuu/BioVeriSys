@@ -1,75 +1,82 @@
-﻿using com.ruda.Domain;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Data;
-using System.Text;
+using com.ruda.Domain;
 
 namespace com.ruda.DataAccess
 {
-    public class UsersDAL
-    {
-        public Users LoginUser(string username, string password)
-        {
-            Users obj = null;
-            try
-            {
-                string @get = @"SP_LoginUser, @username, @password";
-                DataTable dt = new DBHandle().FillDTSP(@get, username, password);
+	public class UsersDAL
+	{
+		public DataTable GetAllUsersList()
+		{
+			DataTable dt = new DataTable();
+			try
+			{
+				string @get = @"SP_GetAllUsers";
+				dt = new DBHandle().FillDTSP(@get);
+			}
+			catch (Exception ex) { throw new Exception(ex.Message); }
+			return dt;
+		}
 
-                if (dt.Rows.Count > 0)
-                {
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        obj = new Users()
-                        {
-                            ID = Convert.ToInt32(dr["ID"] != DBNull.Value ? dr["ID"].ToString() : "0"),
-                            Name = dr["Name"].ToString(),
-                            Designation = dr["Designation"].ToString(),
-                            Email = dr["Email"].ToString(),
-                            UserStatus = Convert.ToBoolean(dr["UserStatus"].ToString()),
-                            StationID = Convert.ToInt32(dr["StationID"] != DBNull.Value ? dr["StationID"].ToString() : "0")
-                        };
-                    }
-                }
-            }
-            catch (Exception ex) { throw new Exception(ex.Message); }
-            return obj;
-        }
+		public DataTable LoginUser(string username, string password)
+		{
+			DataTable dt = new DataTable();
+			try
+			{
+				string @get = @"SP_LoginUser, @username, @password";
+				dt = new DBHandle().FillDTSP(@get, username, password);
+			}
+			catch (Exception ex) { throw new Exception(ex.Message); }
+			return dt;
+		}
 
-        public bool UpdatePassword(int userID, string currentPassword, string newPassword)
-        {
-            try
-            {
-                string @get = @"SP_UpdatePassword, @userID, @currentPassword, @newPassword";
-                Int64 result = new DBHandle().ExecuteSPWithReturnID(@get, userID, currentPassword, newPassword);
+		public bool VerifyUserAccessToken(string userid, string access_token)
+		{
+			try
+			{
+				string @get = @"SP_VerifyUserAccessToken, @UserId, @Access_Token";
+				bool result = Convert.ToBoolean(new DBHandle().ExecuteSPWithReturnID(@get, Convert.ToInt32(userid), access_token));
 
-                return result > 0;
-            }
-            catch (Exception ex) { throw new Exception(ex.Message); }
-        }
+				return result;
+			}
+			catch (Exception ex) { throw new Exception(ex.Message); }
+		}
 
-        public object UpdateUserAccessToken(int ID, string accessToken)
-        {
-            try
-            {
-                string @get = @"SP_UpdateUserAccessToken, @ID, @accessToken";
-                Int64 result = new DBHandle().ExecuteSPWithReturnID(@get, ID, accessToken);
+		public int AddNewUser(Users user, int CreatedBy)
+		{
+			try
+			{
+				string @get = @"SP_AddNewUser, @Name, @Designation, @Email, @Password, @StationID, @UserRole, @CreatedBy";
+				int result = (Int32)new DBHandle().ExecuteSPWithReturnID(@get, user.Name, user.Designation, user.Email, user.Password, user.StationID, user.UserRole, CreatedBy);
 
-                return result;
-            }
-            catch (Exception ex) { throw new Exception(ex.Message); }
-        }
+				return result;
+			}
+			catch (Exception ex) { return -1; }
+		}
 
-        public bool VerifyUserAccessToken(string userid, string access_token)
-        {
-            try
-            {
-                string @get = @"SP_VerifyUserAccessToken, @UserId, @Access_Token";
-                bool result = Convert.ToBoolean(new DBHandle().ExecuteSPWithReturnID(@get, Convert.ToInt32(userid), access_token));
+		public bool UpdatePassword(int userID, string currentPassword, string newPassword)
+		{
+			try
+			{
+				string @get = @"SP_UpdatePassword, @userID, @currentPassword, @newPassword";
+				Int64 result = new DBHandle().ExecuteSPWithReturnID(@get, userID, currentPassword, newPassword);
 
-                return result;
-            }
-            catch (Exception ex) { throw new Exception(ex.Message); }
-        }
-    }
+				return result > 0;
+			}
+			catch (Exception ex) { throw new Exception(ex.Message); }
+		}
+
+		public object UpdateUserAccessToken(int ID, string accessToken)
+		{
+			try
+			{
+				string @get = @"SP_UpdateUserAccessToken, @ID, @accessToken";
+				Int64 result = new DBHandle().ExecuteSPWithReturnID(@get, ID, accessToken);
+
+				return result;
+			}
+			catch (Exception ex) { throw new Exception(ex.Message); }
+		}
+
+	}
 }

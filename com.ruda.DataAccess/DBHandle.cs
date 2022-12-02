@@ -33,8 +33,8 @@ namespace com.ruda.DataAccess
         {
             try
             {
-                string conString = "Server=172.16.1.202;Database=NBV_RUDA;User id=sa;password=Rud@!t2022**;Trusted_Connection=False;";
-                //string conString = "Server=DD-IT;Database=NBV_RUDA;User id=sa;password=root;Trusted_Connection=False;";
+                //string conString = "Server=172.16.1.202;Database=NBV_RUDA;User id=sa;password=Rud@!t2022**;Trusted_Connection=False;";
+                string conString = "Server=DD-IT;Database=NBV_RUDA;User id=sa;password=root;Trusted_Connection=False;";
                 con = new SqlConnection(conString);
             }
             catch (Exception ex) { throw new Exception("Error Generating Connection String \n Message: " + ex.Message); }

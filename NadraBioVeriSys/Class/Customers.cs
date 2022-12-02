@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace NadraBioVeriSys
 {
-    public class Customers
+	public class VerificationResponse
+	{
+		public Customers objCustomer;
+		public VerificationStatus objStatus;
+
+		public VerificationResponse(Customers objCustomer, VerificationStatus objStatus)
+		{
+			this.objCustomer = objCustomer;
+			this.objStatus = objStatus;
+		}
+	}
+
+	public class Customers
     {
         public int ID { get; set; }
         public string CustCNIC { get; set; }
@@ -20,7 +32,25 @@ namespace NadraBioVeriSys
         public string AppUserAccessToken { get; set; }
     }
 
-    public enum Fingers
+	public class VerificationStatus
+	{
+
+		public string SessionID { get; set; }
+		public string BusinessPurpose { get; set; }
+		public string CitizenNumber { get; set; }
+
+		public int UserID { get; set; }
+		public int StationID { get; set; }
+
+		public int ResponseCode { get; set; }
+		public string ResponseMessage { get; set; }
+		public DateTime RequestedOn { get; set; }
+		public string TransactionID { get; set; }
+		public int[] SuggestedFingers { get; set; }
+	}
+
+
+	public enum Fingers
     {
         Right_Thumb = 1,
         Right_Index_Finger = 2,

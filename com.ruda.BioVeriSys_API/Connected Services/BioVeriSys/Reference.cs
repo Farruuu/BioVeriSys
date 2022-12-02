@@ -10,121 +10,128 @@
 namespace BioVeriSys
 {
     using System.Runtime.Serialization;
-
-
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "TemplateType", Namespace = "http://schemas.datacontract.org/2004/07/NADRA.Biometric.Verification")]
-    public enum TemplateType : int
+    
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TemplateType", Namespace="http://schemas.datacontract.org/2004/07/NADRA.Biometric.Verification")]
+    internal enum TemplateType : int
     {
+        
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ANSI = 0,
-
+        
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ISO_19794_2 = 1,
-
+        
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SAGEM_PKMAT = 2,
-
+        
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SAGEM_PKCOMPV2 = 3,
-
+        
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SAGEM_CFV = 4,
-
+        
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RAW_IMAGE = 5,
-
+        
         [System.Runtime.Serialization.EnumMemberAttribute()]
         WSQ = 6,
     }
-
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace = "http://NADRA.Biometric.Verification", ConfigurationName = "BioVeriSys.IBioVeriSysStandard")]
-    public interface IBioVeriSysStandard
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://NADRA.Biometric.Verification", ConfigurationName="BioVeriSys.IBioVeriSysStandard")]
+    internal interface IBioVeriSysStandard
     {
-        [System.ServiceModel.OperationContractAttribute(Action = "http://NADRA.Biometric.Verification/IBioVeriSysStandard/VerifyFingerPrints", ReplyAction = "http://NADRA.Biometric.Verification/IBioVeriSysStandard/VerifyFingerPrintsRespons" +
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://NADRA.Biometric.Verification/IBioVeriSysStandard/VerifyFingerPrints", ReplyAction="http://NADRA.Biometric.Verification/IBioVeriSysStandard/VerifyFingerPrintsRespons" +
             "e")]
         System.Threading.Tasks.Task<string> VerifyFingerPrintsAsync(string franchizeID, string xml_request_data);
-
-        [System.ServiceModel.OperationContractAttribute(Action = "http://NADRA.Biometric.Verification/IBioVeriSysStandard/GetLastVerificationResult" +
-            "s", ReplyAction = "http://NADRA.Biometric.Verification/IBioVeriSysStandard/GetLastVerificationResult" +
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://NADRA.Biometric.Verification/IBioVeriSysStandard/GetLastVerificationResult" +
+            "s", ReplyAction="http://NADRA.Biometric.Verification/IBioVeriSysStandard/GetLastVerificationResult" +
             "sResponse")]
         System.Threading.Tasks.Task<string> GetLastVerificationResultsAsync(string franchizeID, string xml_request_data);
-
-        [System.ServiceModel.OperationContractAttribute(Action = "http://NADRA.Biometric.Verification/IBioVeriSysStandard/TestService", ReplyAction = "http://NADRA.Biometric.Verification/IBioVeriSysStandard/TestServiceResponse")]
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://NADRA.Biometric.Verification/IBioVeriSysStandard/TestService", ReplyAction="http://NADRA.Biometric.Verification/IBioVeriSysStandard/TestServiceResponse")]
         System.Threading.Tasks.Task<string> TestServiceAsync(BioVeriSys.TemplateType type, string tempType);
     }
-
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    public interface IBioVeriSysStandardChannel : BioVeriSys.IBioVeriSysStandard, System.ServiceModel.IClientChannel
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    internal interface IBioVeriSysStandardChannel : BioVeriSys.IBioVeriSysStandard, System.ServiceModel.IClientChannel
     {
     }
-
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    public partial class BioVeriSysStandardClient : System.ServiceModel.ClientBase<BioVeriSys.IBioVeriSysStandard>, BioVeriSys.IBioVeriSysStandard
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    internal partial class BioVeriSysStandardClient : System.ServiceModel.ClientBase<BioVeriSys.IBioVeriSysStandard>, BioVeriSys.IBioVeriSysStandard
     {
-
+        
         /// <summary>
         /// Implement this partial method to configure the service endpoint.
         /// </summary>
         /// <param name="serviceEndpoint">The endpoint to configure</param>
         /// <param name="clientCredentials">The client credentials</param>
         static partial void ConfigureEndpoint(System.ServiceModel.Description.ServiceEndpoint serviceEndpoint, System.ServiceModel.Description.ClientCredentials clientCredentials);
-
-        public BioVeriSysStandardClient() : base(BioVeriSysStandardClient.GetDefaultBinding(), BioVeriSysStandardClient.GetDefaultEndpointAddress())
+        
+        public BioVeriSysStandardClient() : 
+                base(BioVeriSysStandardClient.GetDefaultBinding(), BioVeriSysStandardClient.GetDefaultEndpointAddress())
         {
             this.Endpoint.Name = EndpointConfiguration.BasicHttpBinding_IBioVeriSysStandard.ToString();
             ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
         }
-
-        public BioVeriSysStandardClient(EndpointConfiguration endpointConfiguration) : base(BioVeriSysStandardClient.GetBindingForEndpoint(endpointConfiguration), BioVeriSysStandardClient.GetEndpointAddress(endpointConfiguration))
+        
+        public BioVeriSysStandardClient(EndpointConfiguration endpointConfiguration) : 
+                base(BioVeriSysStandardClient.GetBindingForEndpoint(endpointConfiguration), BioVeriSysStandardClient.GetEndpointAddress(endpointConfiguration))
         {
             this.Endpoint.Name = endpointConfiguration.ToString();
             ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
         }
-
-        public BioVeriSysStandardClient(EndpointConfiguration endpointConfiguration, string remoteAddress) : base(BioVeriSysStandardClient.GetBindingForEndpoint(endpointConfiguration), new System.ServiceModel.EndpointAddress(remoteAddress))
+        
+        public BioVeriSysStandardClient(EndpointConfiguration endpointConfiguration, string remoteAddress) : 
+                base(BioVeriSysStandardClient.GetBindingForEndpoint(endpointConfiguration), new System.ServiceModel.EndpointAddress(remoteAddress))
         {
             this.Endpoint.Name = endpointConfiguration.ToString();
             ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
         }
-
-        public BioVeriSysStandardClient(EndpointConfiguration endpointConfiguration, System.ServiceModel.EndpointAddress remoteAddress) : base(BioVeriSysStandardClient.GetBindingForEndpoint(endpointConfiguration), remoteAddress)
+        
+        public BioVeriSysStandardClient(EndpointConfiguration endpointConfiguration, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(BioVeriSysStandardClient.GetBindingForEndpoint(endpointConfiguration), remoteAddress)
         {
             this.Endpoint.Name = endpointConfiguration.ToString();
             ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
         }
-
-        public BioVeriSysStandardClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : base(binding, remoteAddress)
+        
+        public BioVeriSysStandardClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress)
         {
         }
-
+        
         public System.Threading.Tasks.Task<string> VerifyFingerPrintsAsync(string franchizeID, string xml_request_data)
         {
             return base.Channel.VerifyFingerPrintsAsync(franchizeID, xml_request_data);
         }
-
+        
         public System.Threading.Tasks.Task<string> GetLastVerificationResultsAsync(string franchizeID, string xml_request_data)
         {
             return base.Channel.GetLastVerificationResultsAsync(franchizeID, xml_request_data);
         }
-
+        
         public System.Threading.Tasks.Task<string> TestServiceAsync(BioVeriSys.TemplateType type, string tempType)
         {
             return base.Channel.TestServiceAsync(type, tempType);
         }
-
+        
         public virtual System.Threading.Tasks.Task OpenAsync()
         {
             return System.Threading.Tasks.Task.Factory.FromAsync(((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(null, null), new System.Action<System.IAsyncResult>(((System.ServiceModel.ICommunicationObject)(this)).EndOpen));
         }
-
+        
         public virtual System.Threading.Tasks.Task CloseAsync()
         {
             return System.Threading.Tasks.Task.Factory.FromAsync(((System.ServiceModel.ICommunicationObject)(this)).BeginClose(null, null), new System.Action<System.IAsyncResult>(((System.ServiceModel.ICommunicationObject)(this)).EndClose));
         }
-
+        
         private static System.ServiceModel.Channels.Binding GetBindingForEndpoint(EndpointConfiguration endpointConfiguration)
         {
             if ((endpointConfiguration == EndpointConfiguration.BasicHttpBinding_IBioVeriSysStandard))
@@ -138,7 +145,7 @@ namespace BioVeriSys
             }
             throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }
-
+        
         private static System.ServiceModel.EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration)
         {
             if ((endpointConfiguration == EndpointConfiguration.BasicHttpBinding_IBioVeriSysStandard))
@@ -147,20 +154,20 @@ namespace BioVeriSys
             }
             throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }
-
+        
         private static System.ServiceModel.Channels.Binding GetDefaultBinding()
         {
             return BioVeriSysStandardClient.GetBindingForEndpoint(EndpointConfiguration.BasicHttpBinding_IBioVeriSysStandard);
         }
-
+        
         private static System.ServiceModel.EndpointAddress GetDefaultEndpointAddress()
         {
             return BioVeriSysStandardClient.GetEndpointAddress(EndpointConfiguration.BasicHttpBinding_IBioVeriSysStandard);
         }
-
+        
         public enum EndpointConfiguration
         {
-
+            
             BasicHttpBinding_IBioVeriSysStandard,
         }
     }
